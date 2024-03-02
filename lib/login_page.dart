@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, unused_import, unnecessary_import
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterando/home_page.dart';
@@ -35,10 +34,12 @@ class _loginPageState extends State<loginPage> {
               ),
               Container(height: 20),
               Card(
+                // apenas um filho
                 child: Padding(
                   padding:
                       const EdgeInsets.all(10.0), // aredondamento nas laterais.
                   child: Column(
+                    // column que aceita mais filhos
                     children: [
                       TextField(
                         onChanged: (text) {
@@ -79,7 +80,12 @@ class _loginPageState extends State<loginPage> {
                               }
                             }
                           },
-                          child: Text('Entrar')),
+                          child: SizedBox(
+                              width: double.infinity,
+                              child: Text(
+                                'Entrar',
+                                textAlign: TextAlign.center,
+                              ))),
                     ],
                   ),
                 ),

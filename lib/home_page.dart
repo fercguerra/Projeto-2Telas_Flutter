@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, unnecessary_brace_in_string_interps, prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterando/app_controller.dart';
 
@@ -18,6 +19,39 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: Image.network(
+                    'https://www.fotor.com/templates/blue-and-yellow-football-club-logo-cf269e/'),
+                accountName: Text('Elder'),
+                accountEmail: Text('elder_giov@hotmail.com')),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('Tela de inicio'),
+              onTap: () {
+                if (kDebugMode) {
+                  print('Home');
+                }
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Logout'),
+              subtitle: Text('Finaliza sessão'),
+              onTap: () {
+                Navigator.of(context)
+                    .pushReplacementNamed('/'); // limpar a tela anterior
+                if (kDebugMode) {
+                  print('Home');
+                }
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text(" Home Page"),
         backgroundColor: Color.fromARGB(255, 182, 58, 1),
