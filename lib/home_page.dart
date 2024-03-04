@@ -20,18 +20,27 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        // botao lateral esquerdo
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-                currentAccountPicture: Image.network(
-                    'https://www.fotor.com/templates/blue-and-yellow-football-club-logo-cf269e/'),
+                //informação do cabeçalho a esquerda
+                currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      40), // #ClipOval# outra forma de deixa a foto circular
+                  child: Image.network(
+                      //image no cabeçalho lateral esquerdo.
+                      'https://acdn.mitiendanube.com/stores/758/333/products/mini-mochila-e-bag-jason-voorhees-filme-sexta-feira-13-halloween-terror-horror-trash-11-80aeb86995f80d4a1a16582799504308-640-0.webp'),
+                ),
                 accountName: Text('Elder'),
                 accountEmail: Text('elder_giov@hotmail.com')),
             ListTile(
+              // lista lateral ersquerda
               leading: Icon(Icons.home),
               title: Text('Inicio'),
               subtitle: Text('Tela de inicio'),
               onTap: () {
+                // função click chama algo
                 if (kDebugMode) {
                   print('Home');
                 }
