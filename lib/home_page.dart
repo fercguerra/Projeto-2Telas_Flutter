@@ -21,49 +21,50 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Drawer(
         // botao lateral esquerdo
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                //informação do cabeçalho a esquerda
-                currentAccountPicture: ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                      40), // #ClipOval# outra forma de deixa a foto circular
-                  child: Image.network(
-                      //image no cabeçalho lateral esquerdo.
-                      'https://acdn.mitiendanube.com/stores/758/333/products/mini-mochila-e-bag-jason-voorhees-filme-sexta-feira-13-halloween-terror-horror-trash-11-80aeb86995f80d4a1a16582799504308-640-0.webp'),
-                ),
-                accountName: Text('Elder'),
-                accountEmail: Text('elder_giov@hotmail.com')),
-            ListTile(
-              // lista lateral ersquerda
-              leading: Icon(Icons.home),
-              title: Text('Inicio'),
-              subtitle: Text('Tela de inicio'),
-              onTap: () {
-                // função click chama algo
-                if (kDebugMode) {
-                  print('Home');
-                }
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Logout'),
-              subtitle: Text('Finaliza sessão'),
-              onTap: () {
-                Navigator.of(context)
-                    .pushReplacementNamed('/'); // limpar a tela anterior
-                if (kDebugMode) {
-                  print('Home');
-                }
-              },
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                  //informação do cabeçalho a esquerda
+                  currentAccountPicture: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                        40), // #ClipOval# outra forma de deixa a foto circular
+                    child: Image.asset('/imagem/logo2.jpg'),
+                    //image no cabeçalho lateral esquerdo.
+                  ),
+                  accountName: Text('Elder'),
+                  accountEmail: Text('elder_giov@hotmail.com')),
+              ListTile(
+                // lista lateral ersquerda
+                leading: Icon(Icons.home),
+                title: Text('Inicio'),
+                subtitle: Text('Tela de inicio'),
+                onTap: () {
+                  // função click chama algo
+                  if (kDebugMode) {
+                    print('Home');
+                  }
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Logout'),
+                subtitle: Text('Finaliza sessão'),
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed('/'); // limpar a tela anterior
+                  if (kDebugMode) {
+                    print('Home');
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
         title: const Text(" Home Page"),
-        backgroundColor: Color.fromARGB(255, 182, 58, 1),
+        backgroundColor: Color.fromARGB(255, 9, 155, 199),
         actions: [
           // actions- botão que fica na direita.
           CustomSwitch(),
@@ -77,13 +78,13 @@ class HomePageState extends State<HomePage> {
           // column - colunas    Row - linhas
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Contador:${counter}'),
+            SizedBox(child: Text('Contador:${counter}')),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 182, 58, 1),
+        backgroundColor: Color.fromARGB(255, 9, 155, 199),
         onPressed: () {
           setState(() {
             counter++;
